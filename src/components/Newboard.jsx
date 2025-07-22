@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Newitems from './Newitems';
-
+import { API_KEY } from '../Data';
 const Newboard = ({category}) => {
     const [articles ,setArticals]=useState([]);
     useEffect(()=>{
-    let url=`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=dd94b6e1fa1141f38548221f32be2670`;
+    let url=`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${API_KEY}`;
     fetch(url).then(response=>response.json().then(data=>setArticals(data.articles)));
     },[category]);
   return (
